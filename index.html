@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerConnect - Get Started</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-header">
+            <h1>Welcome to CareerConnect</h1>
+            <p>Let's get you started on your career journey</p>
+        </div>
+        
+        <div class="auth-progress">
+            <div class="progress-step active" data-step="1">1. Choose Role</div>
+            <div class="progress-step" data-step="2">2. Account</div>
+            <div class="progress-step" data-step="3">3. Profile</div>
+            <div class="progress-step" data-step="4">4. Complete</div>
+        </div>
+        
+        <form id="authForm" class="auth-form">
+            <!-- Step 1: Role Selection -->
+            <div class="form-step active" data-step="1">
+                <h2>I want to...</h2>
+                <div class="role-selection">
+                    <input type="radio" name="role" id="jobSeeker" value="jobSeeker" checked>
+                    <label for="jobSeeker" class="role-card">
+                        <div class="role-icon">👨‍💼</div>
+                        <h3>Find a Job</h3>
+                        <p>I'm looking for employment opportunities</p>
+                    </label>
+                    
+                    <input type="radio" name="role" id="employer" value="employer">
+                    <label for="employer" class="role-card">
+                        <div class="role-icon">👔</div>
+                        <h3>Hire Talent</h3>
+                        <p>I want to post jobs and find candidates</p>
+                    </label>
+                </div>
+                <button type="button" class="btn next-btn">Continue</button>
+            </div>
+            
+            <!-- Step 2: Login/Signup -->
+            <div class="form-step" data-step="2">
+                <div class="auth-toggle">
+                    <button type="button" class="toggle-btn active" data-mode="login">Login</button>
+                    <button type="button" class="toggle-btn" data-mode="signup">Sign Up</button>
+                </div>
+                
+                <div class="auth-mode" id="loginForm">
+                    <h2>Login to Your Account</h2>
+                    <div class="form-group">
+                        <label for="loginEmail">Email</label>
+                        <input type="email" id="loginEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" required>
+                    </div>
+                    <div class="form-options">
+                        <label class="remember-me">
+                            <input type="checkbox"> Remember me
+                        </label>
+                        <a href="#" class="forgot-password">Forgot password?</a>
+                    </div>
+                    <button type="button" class="btn auth-btn">Login</button>
+                    <div class="social-login">
+                        <p>Or login with:</p>
+                        <div class="social-buttons">
+                            <button type="button" class="social-btn google">Google</button>
+                            <button type="button" class="social-btn linkedin">LinkedIn</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="auth-mode hidden" id="signupForm">
+                    <h2>Create Your Account</h2>
+                    <div class="form-group">
+                        <label for="signupName">Full Name</label>
+                        <input type="text" id="signupName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupEmail">Email</label>
+                        <input type="email" id="signupEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPassword">Password</label>
+                        <input type="password" id="signupPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword" required>
+                    </div>
+                    <div class="form-group terms">
+                        <input type="checkbox" id="agreeTerms" required>
+                        <label for="agreeTerms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                    </div>
+                    <button type="button" class="btn auth-btn">Sign Up</button>
+                </div>
+                
+                <div class="form-navigation">
+                    <button type="button" class="btn back-btn">Back</button>
+                    <button type="button" class="btn next-btn">Continue</button>
+                </div>
+            </div>
+            
+            <!-- Step 3: Profile Setup -->
+            <div class="form-step" data-step="3">
+                <h2>Complete Your Profile</h2>
+                <div id="jobSeekerProfile">
+                    <div class="form-group">
+                        <label for="jobTitle">Desired Job Title</label>
+                        <input type="text" id="jobTitle" placeholder="e.g. Software Developer">
+                    </div>
+                    <div class="form-group">
+                        <label for="experienceLevel">Experience Level</label>
+                        <select id="experienceLevel">
+                            <option value="">Select</option>
+                            <option value="entry">Entry Level</option>
+                            <option value="mid">Mid Level</option>
+                            <option value="senior">Senior Level</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="skills">Key Skills</label>
+                        <input type="text" id="skills" placeholder="e.g. JavaScript, Python, Project Management">
+                    </div>
+                    <div class="form-group">
+                        <label for="resume">Upload Resume</label>
+                        <input type="file" id="resume" accept=".pdf,.doc,.docx">
+                    </div>
+                </div>
+                
+                <div id="employerProfile" class="hidden">
+                    <div class="form-group">
+                        <label for="companyName">Company Name</label>
+                        <input type="text" id="companyName">
+                    </div>
+                    <div class="form-group">
+                        <label for="companySize">Company Size</label>
+                        <select id="companySize">
+                            <option value="">Select</option>
+                            <option value="1-10">1-10 employees</option>
+                            <option value="11-50">11-50 employees</option>
+                            <option value="51-200">51-200 employees</option>
+                            <option value="201-500">201-500 employees</option>
+                            <option value="501+">501+ employees</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="industry">Industry</label>
+                        <input type="text" id="industry" placeholder="e.g. Technology, Healthcare, Finance">
+                    </div>
+                    <div class="form-group">
+                        <label for="website">Company Website</label>
+                        <input type="url" id="website" placeholder="https://">
+                    </div>
+                </div>
+                
+                <div class="form-navigation">
+                    <button type="button" class="btn back-btn">Back</button>
+                    <button type="button" class="btn next-btn">Complete Profile</button>
+                </div>
+            </div>
+            
+            <!-- Step 4: Completion -->
+            <div class="form-step" data-step="4">
+                <div class="completion-message">
+                    <div class="checkmark">✓</div>
+                    <h2>Setup Complete!</h2>
+                    <p id="completionText">Your job seeker profile has been created successfully. You can now start browsing and applying for jobs.</p>
+                    <button type="button" class="btn finish-btn" >Go to Dashboard</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+    // DOM Elements
+    const form = document.getElementById('authForm');
+    const steps = document.querySelectorAll('.form-step');
+    const progressSteps = document.querySelectorAll('.progress-step');
+    const nextButtons = document.querySelectorAll('.next-btn');
+    const backButtons = document.querySelectorAll('.back-btn');
+    const roleSelection = document.querySelectorAll('input[name="role"]');
+    const toggleButtons = document.querySelectorAll('.toggle-btn');
+    const authModes = document.querySelectorAll('.auth-mode');
+    const jobSeekerProfile = document.getElementById('jobSeekerProfile');
+    const employerProfile = document.getElementById('employerProfile');
+    const completionText = document.getElementById('completionText');
+    const loginBtn = document.querySelector('#loginForm .auth-btn');
+    const signupBtn = document.querySelector('#signupForm .auth-btn');
+    
+    let currentStep = 1;
+    let selectedRole = 'jobSeeker';
+    
+    // Initialize
+    updateProgress();
+    
+    // Prevent form submission
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+    });
+    
+    // Role Selection
+    roleSelection.forEach(radio => {
+        radio.addEventListener('change', function() {
+            selectedRole = this.value;
+        });
+    });
+    
+    // Auth Toggle (Login/Signup)
+    toggleButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const mode = this.dataset.mode;
+            
+            // Update active button
+            toggleButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Show correct form
+            authModes.forEach(form => form.classList.add('hidden'));
+            document.getElementById(`${mode}Form`).classList.remove('hidden');
+        });
+    });
+    
+    // Login Button - Redirect to home
+    if (loginBtn) {
+        loginBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (validateLogin()) {
+                // Redirect to home page after successful login
+                window.location.href = 'home.html'; // Change to your home page URL
+            }
+        });
+    }
+    
+    // Signup Button - Continue to profile setup
+    if (signupBtn) {
+        signupBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (validateSignup()) {
+                currentStep = 3; // Skip to profile setup
+                updateProgress();
+            }
+        });
+    }
+    
+    // Next Button (for step 1)
+    nextButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (currentStep === 1) {
+                currentStep++;
+                updateProgress();
+            }
+        });
+    });
+    
+    // Back Button
+    backButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            currentStep--;
+            updateProgress();
+        });
+    });
+    
+    // Finish Button (after profile setup)
+    const finishButton = document.querySelector('.finish-btn');
+    if (finishButton) {
+        finishButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Redirect to home page after profile completion
+            window.location.href = 'home.html'; // Change to your home page URL
+        });
+    }
+    
+    // Update progress steps and form display
+    function updateProgress() {
+        // Update form steps
+        steps.forEach(step => {
+            if (parseInt(step.dataset.step) === currentStep) {
+                step.classList.add('active');
+            } else {
+                step.classList.remove('active');
+            }
+        });
+        
+        // Update progress indicators
+        progressSteps.forEach(step => {
+            if (parseInt(step.dataset.step) <= currentStep) {
+                step.classList.add('active');
+            } else {
+                step.classList.remove('active');
+            }
+        });
+        
+        // Show correct profile form based on role
+        if (currentStep === 3) {
+            if (selectedRole === 'jobSeeker') {
+                jobSeekerProfile.classList.remove('hidden');
+                employerProfile.classList.add('hidden');
+            } else {
+                jobSeekerProfile.classList.add('hidden');
+                employerProfile.classList.remove('hidden');
+            }
+        }
+    }
+    
+    // Validate login form
+    function validateLogin() {
+        const email = document.getElementById('loginEmail').value;
+        const password = document.getElementById('loginPassword').value;
+        let isValid = true;
+        
+        if (!email.trim()) {
+            document.getElementById('loginEmail').style.borderColor = '#e74c3c';
+            isValid = false;
+        } else {
+            document.getElementById('loginEmail').style.borderColor = '#ddd';
+        }
+        
+        if (!password.trim()) {
+            document.getElementById('loginPassword').style.borderColor = '#e74c3c';
+            isValid = false;
+        } else {
+            document.getElementById('loginPassword').style.borderColor = '#ddd';
+        }
+        
+        return isValid;
+    }
+    
+    // Validate signup form
+    function validateSignup() {
+        const name = document.getElementById('signupName').value;
+        const email = document.getElementById('signupEmail').value;
+        const password = document.getElementById('signupPassword').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+        const agreeTerms = document.getElementById('agreeTerms').checked;
+        let isValid = true;
+        
+        if (!name.trim()) {
+            document.getElementById('signupName').style.borderColor = '#e74c3c';
+            isValid = false;
+        } else {
+            document.getElementById('signupName').style.borderColor = '#ddd';
+        }
+        
+        if (!email.trim()) {
+            document.getElementById('signupEmail').style.borderColor = '#e74c3c';
+            isValid = false;
+        } else {
+            document.getElementById('signupEmail').style.borderColor = '#ddd';
+        }
+        
+        if (!password.trim()) {
+            document.getElementById('signupPassword').style.borderColor = '#e74c3c';
+            isValid = false;
+        } else {
+            document.getElementById('signupPassword').style.borderColor = '#ddd';
+        }
+        
+        if (password !== confirmPassword) {
+            document.getElementById('confirmPassword').style.borderColor = '#e74c3c';
+            alert('Passwords do not match!');
+            isValid = false;
+        } else {
+            document.getElementById('confirmPassword').style.borderColor = '#ddd';
+        }
+        
+        if (!agreeTerms) {
+            alert('You must agree to the terms and conditions');
+            isValid = false;
+        }
+        
+        return isValid;
+    }
+    
+    // Social login buttons
+    document.querySelector('.social-btn.google')?.addEventListener('click', function(e) {
+        e.preventDefault();
+        // Redirect to home after social login (simulated)
+        window.location.href = 'home.html';
+    });
+    
+    document.querySelector('.social-btn.linkedin')?.addEventListener('click', function(e) {
+        e.preventDefault();
+        // Redirect to home after social login (simulated)
+        window.location.href = 'home.html';
+    });
+});
+    </script>
+</body>
+</html>

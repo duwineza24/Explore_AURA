@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ExploreAura: Your hub for jobs, marketplace, places, skills, and events. Connect with your community.">
+  <meta name="keywords" content="community, jobs, marketplace, places, skills, events">
+  <title>ExploreAura</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #28a745;
+      --secondary-color: #218838;
+      --text-color: #333;
+      --bg-color: #f8f9fa;
+      --card-bg: #fff;
+      --border-color: #dee2e6;
+      --hero-bg: #e9ecef;
+      --footer-bg: #343a40;
+      --footer-text: #adb5bd;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      --accent-color: #f59e0b;
+      --gradient: linear-gradient(135deg, #28a745, #20c997);
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      animation: fadeInBody 1s ease-in-out;
+    }
+
+    @keyframes fadeInBody {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    body.dark-mode {
+      --primary-color: #51cf66;
+      --secondary-color: #37b24d;
+      --text-color: #e9ecef;
+      --bg-color: #212529;
+      --card-bg: #343a40;
+      --border-color: #495057;
+      --hero-bg: #343a40;
+      --footer-bg: #1c2526;
+      --footer-text: #adb5bd;
+      --gradient: linear-gradient(135deg, #51cf66, #40c057);
+    }
+
+    /* Header */
+    header {
+      background-color: var(--card-bg);
+      border-bottom: 1px solid var(--border-color);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: var(--shadow);
+      animation: slideInFromTop 0.5s ease-out;
+      transition: background-color 0.3s;
+    }
+
+    header.scrolled {
+      background-color: rgba(255, 255, 255, 0.95);
+    }
+
+    body.dark-mode header.scrolled {
+      background-color: rgba(52, 58, 64, 0.95);
+    }
+
+    @keyframes slideInFromTop {
+      from { transform: translateY(-100%); }
+      to { transform: translateY(0); }
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    nav a {
+      margin: 0 1.2rem;
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 600;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary-color);
+      transition: width 0.3s;
+    }
+
+    nav a:hover::after, nav a.active::after {
+      width: 100%;
+    }
+
+    nav a:hover, nav a.active {
+      color: var(--primary-color);
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    .theme-toggle {
+      cursor: pointer;
+      font-size: 1.4rem;
+      transition: transform 0.3s;
+    }
+
+    .theme-toggle:hover {
+      transform: rotate(180deg);
+    }
+
+    .get-started {
+      background-color: var(--primary-color);
+      color: #fff;
+      padding: 0.6rem 1.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 2px 10px rgba(40, 167, 69, 0.2);
+      transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    }
+
+    .get-started:hover {
+      background-color: var(--secondary-color);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 6rem 2rem;
+      background: var(--gradient);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+      animation: fadeIn 1s ease-in;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 80%);
+      animation: rotate 20s linear infinite;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      animation: bounceIn 0.8s;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+      animation: fadeIn 1s 0.5s backwards;
+    }
+
+    .hero-cta {
+      background-color: #fff;
+      color: var(--primary-color);
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    }
+
+    .hero-cta:hover {
+      background-color: var(--secondary-color);
+      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Search Bar */
+    .search-bar {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+      display: flex;
+      gap: 1rem;
+      position: relative;
+      animation: slideInFromLeft 0.7s;
+    }
+
+    .search-input {
+      flex: 1;
+      padding: 1rem 1.5rem;
+      border: none;
+      border-radius: 50px;
+      background-color: var(--card-bg);
+      font-size: 1.1rem;
+      box-shadow: var(--shadow);
+      transition: box-shadow 0.3s;
+    }
+
+    .search-input:focus {
+      box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.2);
+    }
+
+    .search-btn {
+      background-color: var(--primary-color);
+      color: #fff;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1.1rem;
+      box-shadow: var(--shadow);
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .search-btn:hover {
+      background-color: var(--secondary-color);
+      transform: translateY(-2px);
+    }
+
+    /* Category Panel */
+    .category-panel {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .category-btn {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background-color 0.3s, color 0.3s, transform 0.2s;
+    }
+
+    .category-btn.active, .category-btn:hover {
+      background-color: var(--primary-color);
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    /* Item Listings */
+    .item-listings {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .item-card {
+      background: var(--card-bg);
+      border: none;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
+      animation: fadeInCard 0.5s ease-in;
+    }
+
+    .item-card.hidden {
+      display: none;
+    }
+
+    .item-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    }
+
+    .item-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .item-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary-color);
+    }
+
+    .item-card p {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .item-card a {
+      background-color: var(--primary-color);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .item-card a:hover {
+      background-color: var(--secondary-color);
+      transform: scale(1.05);
+    }
+
+    /* Add Item Button */
+    .add-item-btn {
+      display: block;
+      max-width: 200px;
+      margin: 2rem auto;
+      background-color: var(--accent-color);
+      color: #fff;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      text-align: center;
+      font-weight: 600;
+      box-shadow: var(--shadow);
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .add-item-btn:hover {
+      background-color: #e68a00;
+      transform: translateY(-2px);
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: var(--card-bg);
+      padding: 2rem;
+      border-radius: 1rem;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: var(--shadow);
+      animation: fadeIn 0.3s ease-in;
+    }
+
+    .modal-content h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary-color);
+    }
+
+    .modal-content form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .modal-content input, .modal-content textarea, .modal-content select {
+      padding: 0.75rem;
+      border: 1px solid var(--border-color);
+      border-radius: 0.375rem;
+      font-size: 1rem;
+    }
+
+    .modal-content textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .modal-content button[type="submit"] {
+      background-color: var(--primary-color);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .modal-content button[type="submit"]:hover {
+      background-color: var(--secondary-color);
+      transform: scale(1.05);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-color);
+      transition: color 0.3s;
+    }
+
+    .modal-close:hover {
+      color: var(--primary-color);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--footer-bg);
+      color: #fff;
+      padding: 4rem 2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: var(--gradient);
+    }
+
+    .footer-logo {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      letter-spacing: 1px;
+    }
+
+    .footer-description {
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      font-size: 1.1rem;
+    }
+
+    .footer-links, .footer-policies {
+      margin: 1.5rem 0;
+    }
+
+    .footer-links a, .footer-policies a {
+      color: var(--footer-text);
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover, .footer-policies a:hover {
+      color: #fff;
+    }
+
+    .footer-tip {
+      color: var(--footer-text);
+      font-size: 0.9rem;
+      margin: 1.5rem 0;
+      font-style: italic;
+    }
+
+    .footer-actions a {
+      color: var(--primary-color);
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .footer-actions a:hover {
+      color: var(--secondary-color);
+    }
+
+    .social-links {
+      margin: 2rem 0;
+    }
+
+    .social-links a {
+      color: var(--footer-text);
+      font-size: 1.8rem;
+      margin: 0 1rem;
+      transition: color 0.3s, transform 0.2s;
+    }
+
+    .social-links a:hover {
+      color: var(--primary-color);
+      transform: scale(1.2);
+    }
+
+    /* Chat Widget */
+    .chat-widget {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 1000;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .chat-widget.collapsed {
+      width: 60px;
+      height: 60px;
+      background-color: var(--primary-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+    }
+
+    .chat-widget.collapsed .chat-icon {
+      font-size: 2rem;
+      color: #fff;
+    }
+
+    .chat-widget.expanded {
+      background-color: var(--card-bg);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      width: 350px;
+      animation: expandChat 0.3s ease-out;
+    }
+
+    @keyframes expandChat {
+      from { transform: scale(0); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .chat-widget.collapsed .chat-content {
+      display: none;
+    }
+
+    .chat-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chat-widget h4 {
+      margin: 0 0 1.5rem;
+      font-size: 1.2rem;
+      color: var(--primary-color);
+    }
+
+    .chat-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-color);
+      transition: color 0.3s;
+    }
+
+    .chat-close:hover {
+      color: var(--primary-color);
+    }
+
+    .chat-options {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .chat-options a {
+      color: var(--text-color);
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .chat-options a:hover {
+      background-color: var(--primary-color);
+      color: #fff;
+    }
+
+    .chat-input {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .chat-input input {
+      flex-grow: 1;
+      padding: 0.75rem;
+      border: 1px solid var(--border-color);
+      border-radius: 0.375rem;
+      font-size: 1rem;
+    }
+
+    .chat-input button {
+      background-color: var(--primary-color);
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.375rem;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+
+    .chat-input button:hover {
+      background-color: var(--secondary-color);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+      }
+
+      .search-bar {
+        flex-direction: column;
+      }
+
+      .category-panel {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .item-listings {
+        grid-template-columns: 1fr;
+      }
+
+      .chat-widget.expanded {
+        width: 90%;
+        right: 5%;
+      }
+
+      .modal-content {
+        width: 95%;
+      }
+    }
+
+    /* Keyframes */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes bounceIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes fadeInCard {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideInFromLeft {
+      from { transform: translateX(-50px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">ExploreAura</div>
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="Jobs.html">Jobs</a>
+      <a href="marketplace.html">Marketplace</a>
+      <a href="places.html">Places</a>
+      <a href="skill.html">Skills</a>
+      <a href="event.html">Events</a>
+    </nav>
+    <div class="header-right">
+      <span class="theme-toggle" aria-label="Toggle Theme">🌓</span>
+      <a href="#" class="get-started">Get Started</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Welcome to ExploreAura</h1>
+    <p>Your one-stop hub for jobs, marketplace, places, skills, and events. Connect with your community today.</p>
+    <a href="#item-listings" class="hero-cta">Get Started</a>
+  </section>
+
+  <!-- Search Bar -->
+  <section class="search-bar">
+    <input type="text" id="item-search" class="search-input" placeholder="Search items by title, description, or category...">
+    <button class="search-btn">Search</button>
+  </section>
+
+  <!-- Category Panel -->
+  <section class="category-panel">
+    <button class="category-btn active" data-category="all">All</button>
+    <button class="category-btn" data-category="Jobs">Jobs</button>
+    <button class="category-btn" data-category="Marketplace">Marketplace</button>
+    <button class="category-btn" data-category="Places">Places</button>
+    <button class="category-btn" data-category="Skills">Skills</button>
+    <button class="category-btn" data-category="Events">Events</button>
+  </section>
+
+  <!-- Add Item Button -->
+  <a href="#" class="add-item-btn" id="add-item-btn">Add Item</a>
+
+  <!-- Item Listings -->
+  <section class="item-listings" id="item-listings">
+    <div class="item-card" data-category="Jobs">
+      <img src="https://via.placeholder.com/300x200?text=Software+Engineer" alt="Software Engineer">
+      <h3>Software Engineer</h3>
+      <p>Join a dynamic tech startup as a full-stack developer.</p>
+      <p><strong>Location:</strong> Kigali</p>
+      <a href="#">Apply Now</a>
+    </div>
+    <div class="item-card" data-category="Marketplace">
+      <img src="https://via.placeholder.com/300x200?text=Handcrafted+Table" alt="Handcrafted Table">
+      <h3>Handcrafted Table</h3>
+      <p>Beautiful wooden table made by local artisans.</p>
+      <p><strong>Location:</strong> Kigali</p>
+      <a href="#">Buy Now</a>
+    </div>
+    <div class="item-card" data-category="Places">
+      <img src="https://via.placeholder.com/300x200?text=Restaurant" alt="Kigali Heights Restaurant">
+      <h3>Kigali Heights Restaurant</h3>
+      <p>Enjoy authentic cuisine with stunning city views.</p>
+      <p><strong>Location:</strong> Kigali</p>
+      <a href="#">View Details</a>
+    </div>
+    <div class="item-card" data-category="Skills">
+      <img src="https://via.placeholder.com/300x200?text=Python+Course" alt="Python Programming Course">
+      <h3>Python Programming Course</h3>
+      <p>Learn Python with hands-on projects.</p>
+      <p><strong>Location:</strong> Kigali</p>
+      <a href="#">Enroll Now</a>
+    </div>
+    <div class="item-card" data-category="Events">
+      <img src="https://via.placeholder.com/300x200?text=Cultural+Festival" alt="Cultural Festival">
+      <h3>Cultural Festival</h3>
+      <p>Celebrate local traditions with music and dance.</p>
+      <p><strong>Location:</strong> Kigali</p>
+      <a href="#">Join Event</a>
+    </div>
+  </section>
+
+  <!-- Modal for Adding Item -->
+  <div class="modal" id="add-item-modal">
+    <div class="modal-content">
+      <span class="modal-close" id="modal-close">&times;</span>
+      <h2>Add an Item</h2>
+      <form id="add-item-form">
+        <input type="text" name="title" placeholder="Item Title" required>
+        <textarea name="description" placeholder="Item Description" required></textarea>
+        <select name="category" required>
+          <option value="" disabled selected>Select Category</option>
+          <option value="Jobs">Jobs</option>
+          <option value="Marketplace">Marketplace</option>
+          <option value="Places">Places</option>
+          <option value="Skills">Skills</option>
+          <option value="Events">Events</option>
+        </select>
+        <input type="text" name="location" placeholder="Location (e.g., Kigali)" required>
+        <button type="submit">Submit Item</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-logo">ExploreAura</div>
+    <p>One hub for Jobs • Marketplace • Places • Skills • Events. Built with love for community.</p>
+    <div class="footer-links">
+      <a href="#">Explore</a>
+      <a href="Jobs.html">Jobs</a>
+      <a href="marketplace.html">Marketplace</a>
+      <a href="places.html">Places</a>
+      <a href="skill.html">Skills</a>
+      <a href="event.html">Events</a>
+    </div>
+    <div class="footer-policies">
+      <a href="#">Terms</a>
+      <a href="#">Privacy</a>
+      <a href="#">Safety</a>
+    </div>
+    <div class="footer-tip">Tip: Press / to focus search • Ctrl+K to open commands</div>
+    <div class="footer-actions">
+      <a href="#">Install App</a>
+      <a href="#">Contact Support</a>
+    </div>
+    <div class="social-links">
+      <a href="#" aria-label="Twitter">🐦</a>
+      <a href="#" aria-label="Facebook">📘</a>
+      <a href="#" aria-label="Instagram">📸</a>
+      <a href="#" aria-label="LinkedIn">💼</a>
+    </div>
+    <p>© 2025 ExploreAura • Safe • Local • Verified</p>
+  </footer>
+
+  <!-- Chat Widget -->
+  <div class="chat-widget collapsed" id="chat-widget">
+    <span class="chat-icon">💬</span>
+    <div class="chat-content">
+      <span class="chat-close">&times;</span>
+      <h4>Need Help?</h4>
+      <div class="chat-options">
+        <a href="Jobs.html">Explore Jobs</a>
+        <a href="marketplace.html">Shop Marketplace</a>
+        <a href="places.html">Discover Places</a>
+        <a href="skill.html">Learn Skills</a>
+        <a href="event.html">Join Events</a>
+      </div>
+      <div class="chat-input">
+        <input type="text" id="chat-input" placeholder="Ask a question...">
+        <button id="chat-send">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Item Data
+    let items = [
+      { title: "Software Engineer", description: "Join a dynamic tech startup as a full-stack developer.", category: "Jobs", location: "Kigali", image: "https://via.placeholder.com/300x200?text=Software+Engineer" },
+      { title: "Handcrafted Table", description: "Beautiful wooden table made by local artisans.", category: "Marketplace", location: "Kigali", image: "https://via.placeholder.com/300x200?text=Handcrafted+Table" },
+      { title: "Kigali Heights Restaurant", description: "Enjoy authentic cuisine with stunning city views.", category: "Places", location: "Kigali", image: "https://via.placeholder.com/300x200?text=Restaurant" },
+      { title: "Python Programming Course", description: "Learn Python with hands-on projects.", category: "Skills", location: "Kigali", image: "https://via.placeholder.com/300x200?text=Python+Course" },
+      { title: "Cultural Festival", description: "Celebrate local traditions with music and dance.", category: "Events", location: "Kigali", image: "https://via.placeholder.com/300x200?text=Cultural+Festival" }
+    ];
+
+    // Render Items
+    function renderItems(filteredItems) {
+      const itemListings = document.getElementById('item-listings');
+      itemListings.innerHTML = '';
+      filteredItems.forEach(item => {
+        const itemCard = document.createElement('div');
+        itemCard.classList.add('item-card');
+        itemCard.setAttribute('data-category', item.category);
+        itemCard.innerHTML = `
+          <img src="${item.image}" alt="${item.title}">
+          <h3>${item.title}</h3>
+          <p>${item.description}</p>
+          <p><strong>Location:</strong> ${item.location}</p>
+          <a href="#">${item.category === 'Jobs' ? 'Apply Now' : item.category === 'Marketplace' ? 'Buy Now' : item.category === 'Places' ? 'View Details' : item.category === 'Skills' ? 'Enroll Now' : 'Join Event'}</a>
+        `;
+        itemListings.appendChild(itemCard);
+      });
+    }
+
+    // Initial Render
+    renderItems(items);
+
+    // Real-Time Search
+    document.getElementById('item-search').addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase();
+      const filteredItems = items.filter(item =>
+        item.title.toLowerCase().includes(query) ||
+        item.description.toLowerCase().includes(query) ||
+        item.category.toLowerCase().includes(query) ||
+        item.location.toLowerCase().includes(query)
+      );
+      renderItems(filteredItems);
+    });
+
+    // Category Filter
+    const categoryButtons = document.querySelectorAll('.category-btn');
+    categoryButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        categoryButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        const category = button.getAttribute('data-category');
+        const filteredItems = category === 'all' ? items : items.filter(item => item.category === category);
+        renderItems(filteredItems);
+      });
+    });
+
+    // Add Item Modal
+    const addItemBtn = document.getElementById('add-item-btn');
+    const addItemModal = document.getElementById('add-item-modal');
+    const modalClose = document.getElementById('modal-close');
+    const addItemForm = document.getElementById('add-item-form');
+
+    addItemBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      addItemModal.style.display = 'flex';
+    });
+
+    modalClose.addEventListener('click', () => {
+      addItemModal.style.display = 'none';
+      addItemForm.reset();
+    });
+
+    addItemForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const formData = new FormData(addItemForm);
+      const newItem = {
+        title: formData.get('title'),
+        description: formData.get('description'),
+        category: formData.get('category'),
+        location: formData.get('location'),
+        image: "https://via.placeholder.com/300x200?text=" + encodeURIComponent(formData.get('title'))
+      };
+      items.push(newItem);
+      renderItems(items);
+      addItemModal.style.display = 'none';
+      addItemForm.reset();
+      alert('Item added successfully!');
+    });
+
+    // Header Scroll Effect
+    window.addEventListener('scroll', () => {
+      document.querySelector('header').classList.toggle('scrolled', window.scrollY > 0);
+    });
+
+    // Chat Widget Toggle
+    const chatWidget = document.getElementById('chat-widget');
+    const chatClose = document.querySelector('.chat-close');
+
+    chatWidget.addEventListener('click', (e) => {
+      if (chatWidget.classList.contains('collapsed') && !e.target.classList.contains('chat-close')) {
+        chatWidget.classList.remove('collapsed');
+        chatWidget.classList.add('expanded');
+      }
+    });
+
+    if (chatClose) {
+      chatClose.addEventListener('click', () => {
+        chatWidget.classList.remove('expanded');
+        chatWidget.classList.add('collapsed');
+      });
+    }
+
+    // Chat Send
+    document.getElementById('chat-send').addEventListener('click', () => {
+      const message = document.getElementById('chat-input').value;
+      if (message) {
+        alert(`Message sent: ${message}`);
+        document.getElementById('chat-input').value = '';
+      }
+    });
+
+    // Theme Toggle
+    document.querySelector('.theme-toggle').addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+    });
+
+    // Get Started
+    document.querySelector('.get-started').addEventListener('click', (e) => {
+      e.preventDefault();
+      alert('Welcome! Sign up or log in to get started.');
+    });
+  </script>
+</body>
+</html>
