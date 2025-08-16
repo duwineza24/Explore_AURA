@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Explore the ExploreAura Marketplace. Buy, sell, and trade local goods and services in Rwanda.">
-  <meta name="keywords" content="Rwanda, marketplace, buy, sell, trade, Kigali">
-  <title>Marketplace - ExploreAura</title>
+  <meta name="description" content="ExploreAura Events: Discover local festivals, workshops, and community gatherings.">
+  <meta name="keywords" content="events, community, festivals, workshops, sports, book fairs">
+  <title>ExploreAura - Events</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -22,6 +22,7 @@
       --accent-color: #f59e0b;
       --gradient: linear-gradient(135deg, #28a745, #20c997);
     }
+
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
@@ -51,7 +52,6 @@
       --gradient: linear-gradient(135deg, #51cf66, #40c057);
     }
 
-    /* Header */
     header {
       background-color: var(--card-bg);
       border-bottom: 1px solid var(--border-color);
@@ -121,15 +121,6 @@
       gap: 1.2rem;
     }
 
-    .header-right select {
-      border: none;
-      background: transparent;
-      color: var(--text-color);
-      font-size: 1rem;
-      cursor: pointer;
-      font-weight: 500;
-    }
-
     .theme-toggle {
       cursor: pointer;
       font-size: 1.4rem;
@@ -147,17 +138,16 @@
       border-radius: 50px;
       text-decoration: none;
       font-weight: 600;
-      box-shadow: 0 2px 10px rgba(0, 123, 255, 0.2);
+      box-shadow: 0 2px 10px rgba(40, 167, 69, 0.2);
       transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
     }
 
     .get-started:hover {
       background-color: var(--secondary-color);
       transform: translateY(-2px);
-      box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+      box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
     }
 
-    /* Hero */
     .hero {
       text-align: center;
       padding: 6rem 2rem;
@@ -218,7 +208,6 @@
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
     }
 
-    /* Search Bar */
     .search-bar {
       max-width: 900px;
       margin: 3rem auto;
@@ -241,7 +230,7 @@
     }
 
     .search-input:focus {
-      box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+      box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.2);
     }
 
     .search-btn {
@@ -262,7 +251,6 @@
       transform: translateY(-2px);
     }
 
-    /* Category Panel */
     .category-panel {
       max-width: 1200px;
       margin: 2rem auto;
@@ -289,7 +277,6 @@
       transform: scale(1.05);
     }
 
-    /* Item Listings */
     .item-listings {
       max-width: 1200px;
       margin: 2rem auto;
@@ -352,7 +339,6 @@
       transform: scale(1.05);
     }
 
-    /* Add Item Button */
     .add-item-btn {
       display: block;
       max-width: 200px;
@@ -373,7 +359,6 @@
       transform: translateY(-2px);
     }
 
-    /* Modal */
     .modal {
       display: none;
       position: fixed;
@@ -451,7 +436,6 @@
       color: var(--primary-color);
     }
 
-    /* Footer */
     footer {
       background-color: var(--footer-bg);
       color: #fff;
@@ -483,11 +467,11 @@
       font-size: 1.1rem;
     }
 
-    .footer-links, .footer-policies, .footer-languages {
+    .footer-links, .footer-policies {
       margin: 1.5rem 0;
     }
 
-    .footer-links a, .footer-policies a, .footer-languages a {
+    .footer-links a, .footer-policies a {
       color: var(--footer-text);
       text-decoration: none;
       margin: 0 1rem;
@@ -495,7 +479,7 @@
       transition: color 0.3s;
     }
 
-    .footer-links a:hover, .footer-policies a:hover, .footer-languages a:hover {
+    .footer-links a:hover, .footer-policies a:hover {
       color: #fff;
     }
 
@@ -534,7 +518,6 @@
       transform: scale(1.2);
     }
 
-    /* Chat Widget */
     .chat-widget {
       position: fixed;
       bottom: 2rem;
@@ -651,7 +634,6 @@
       background-color: var(--secondary-color);
     }
 
-    /* Responsive Design */
     @media (max-width: 768px) {
       .hero h1 {
         font-size: 2rem;
@@ -684,7 +666,6 @@
       }
     }
 
-    /* Keyframes */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -712,139 +693,71 @@
   <header>
     <div class="logo">ExploreAura</div>
     <nav>
-      <a href="home.html">Home</a>
+      <a href="index.html">Home</a>
       <a href="Jobs.html">Jobs</a>
-      <a href="marketplace.html" class="active">Marketplace</a>
+      <a href="marketplace.html">Marketplace</a>
       <a href="places.html">Places</a>
       <a href="skill.html">Skills</a>
-      <a href="event.html">Events</a>
+      <a href="event.html" class="active">Events</a>
     </nav>
     <div class="header-right">
       <span class="theme-toggle" aria-label="Toggle Theme">🌓</span>
-      <a href="index.html" class="get-started">Get Started</a>
+      <a href="#" class="get-started">Get Started</a>
     </div>
   </header>
 
   <!-- Hero -->
   <section class="hero">
-    <h1>Explore the Rwanda Marketplace</h1>
-    <p>Buy, sell, and trade local goods and services in Rwanda’s vibrant community.</p>
-    <a href="#item-listings" class="hero-cta">Shop Now</a>
+    <h1>ExploreAura Events</h1>
+    <p>Discover local festivals, workshops, and community gatherings to connect and celebrate.</p>
+    <a href="#item-listings" class="hero-cta">Explore Events</a>
   </section>
 
   <!-- Search Bar -->
   <section class="search-bar">
-    <input type="text" id="item-search" class="search-input" placeholder="Search items by title, description, or category...">
+    <input type="text" id="item-search" class="search-input" placeholder="Search events...">
     <button class="search-btn">Search</button>
   </section>
 
   <!-- Category Panel -->
   <section class="category-panel">
     <button class="category-btn active" data-category="all">All</button>
-    <button class="category-btn" data-category="Electronics">Electronics</button>
-    <button class="category-btn" data-category="Clothing">Clothing</button>
-    <button class="category-btn" data-category="Furniture">Furniture</button>
-    <button class="category-btn" data-category="Books">Books</button>
-    <button class="category-btn" data-category="Other">Other</button>
+    <button class="category-btn" data-category="Festivals">Festivals</button>
+    <button class="category-btn" data-category="Workshops">Workshops</button>
+    <button class="category-btn" data-category="Sports">Sports</button>
+    <button class="category-btn" data-category="Food">Food</button>
+    <button class="category-btn" data-category="Literature">Literature</button>
   </section>
 
   <!-- Add Item Button -->
-  <a href="#" class="add-item-btn" id="add-item-btn">Add Item</a>
+  <a href="#" class="add-item-btn" id="add-item-btn">Add Event</a>
 
   <!-- Item Listings -->
   <section class="item-listings" id="item-listings">
-    <div class="item-card" data-category="Electronics">
-      <img src="black.jpg" alt="Laptop">
-      <h3>Laptop for Sale</h3>
-      <p>Brand new laptop with 16GB RAM and 512GB SSD. Perfect for work or gaming.</p>
-      <p><strong>Price:</strong> $800</p>
-      <p><strong>Location:</strong> Kigali</p>
-      <a href="#">View Details</a>
-    </div>
-    <div class="item-card" data-category="Clothing">
-      <img src="dress.jpg" alt="Traditional Dress">
-      <h3>Traditional Rwandan Dress</h3>
-      <p>Handmade dress with vibrant patterns, ideal for cultural events.</p>
-      <p><strong>Price:</strong> $50</p>
-      <p><strong>Location:</strong> Kigali</p>
-      <a href="#">View Details</a>
-    </div>
-    <div class="item-card" data-category="Furniture">
-      <img src="sofa.jpg" alt="Sofa">
-      <h3>Modern Sofa</h3>
-      <p>Comfortable 3-seater sofa, gently used, perfect for any living room.</p>
-      <p><strong>Price:</strong> $200</p>
-      <p><strong>Location:</strong> Kigali</p>
-      <a href="#">View Details</a>
-    </div>
-    <div class="item-card" data-category="Books">
-      <img src="book.webp" alt="Books">
-      <h3>Programming Books Bundle</h3>
-      <p>Collection of Python, JavaScript, and Data Science books in great condition.</p>
-      <p><strong>Price:</strong> $30</p>
-      <p><strong>Location:</strong> Kigali</p>
-      <a href="#">View Details</a>
-    </div>
+    <!-- Events will be dynamically inserted here -->
   </section>
 
-  <!-- Modal for Adding Item -->
+  <!-- Modal for Adding Events -->
   <div class="modal" id="add-item-modal">
     <div class="modal-content">
-      <span class="modal-close" id="modal-close">&times;</span>
-      <h2>Add a Marketplace Item</h2>
+      <span class="modal-close">&times;</span>
+      <h2>Add New Event</h2>
       <form id="add-item-form">
-        <input type="text" name="title" placeholder="Item Title" required>
-        <textarea name="description" placeholder="Item Description" required></textarea>
-        <select name="category" required>
+        <input type="text" id="item-title" placeholder="Event Name" required>
+        <textarea id="item-description" placeholder="Event Description" required></textarea>
+        <select id="item-category" required>
           <option value="" disabled selected>Select Category</option>
-          <option value="Electronics">Electronics</option>
-          <option value="Clothing">Clothing</option>
-          <option value="Furniture">Furniture</option>
-          <option value="Books">Books</option>
-          <option value="Other">Other</option>
+          <option value="Festivals">Festivals</option>
+          <option value="Workshops">Workshops</option>
+          <option value="Sports">Sports</option>
+          <option value="Food">Food</option>
+          <option value="Literature">Literature</option>
         </select>
-        <input type="number" name="price" placeholder="Price (USD)" required min="0">
-        <input type="text" name="location" placeholder="Location (e.g., Kigali)" required>
-        <button type="submit">Submit Item</button>
+        <input type="url" id="item-image" placeholder="Image URL (optional)">
+        <button type="submit">Add Event</button>
       </form>
     </div>
   </div>
-
-  <!-- Footer -->
-  <footer>
-    <div class="footer-logo">ExploreAura</div>
-    <p>One hub for Jobs • Marketplace • Places • Skills • Events. Built with love for Rwanda.</p>
-    <div class="footer-links">
-      <a href="#">Explore</a>
-      <a href="Jobs.html">Jobs</a>
-      <a href="marketplace.html">Marketplace</a>
-      <a href="places.html">Places</a>
-      <a href="skill.html">Skills</a>
-      <a href="event.html">Events</a>
-    </div>
-    <div class="footer-policies">
-      <a href="#">Terms</a>
-      <a href="#">Privacy</a>
-      <a href="#">Safety</a>
-    </div>
-    <div class="footer-languages">
-      <a href="#">English</a>
-      <a href="#">Français</a>
-      <a href="#">Kinyarwanda</a>
-    </div>
-    <div class="footer-tip">Tip: Press / to focus search • Ctrl+K to open commands</div>
-    <div class="footer-actions">
-      <a href="#">Install App</a>
-      <a href="#">Contact Support</a>
-    </div>
-    <div class="social-links">
-      <a href="#" aria-label="Twitter">🐦</a>
-      <a href="#" aria-label="Facebook">📘</a>
-      <a href="#" aria-label="Instagram">📸</a>
-      <a href="#" aria-label="LinkedIn">💼</a>
-    </div>
-    <p>© 2025 ExploreAura • Safe • Local • Verified</p>
-  </footer>
 
   <!-- Chat Widget -->
   <div class="chat-widget collapsed" id="chat-widget">
@@ -853,31 +766,96 @@
       <span class="chat-close">&times;</span>
       <h4>Need Help?</h4>
       <div class="chat-options">
-        <a href="Jobs.html">Explore Jobs</a>
-        <a href="marketplace.html">Shop Marketplace</a>
-        <a href="places.html">Discover Places</a>
-        <a href="skill.html">Learn Skills</a>
-        <a href="event.html">Join Events</a>
+        <a href="#">Find an Event</a>
+        <a href="#">Add an Event</a>
+        <a href="#">Contact Support</a>
       </div>
       <div class="chat-input">
-        <input type="text" id="chat-input" placeholder="Ask a question...">
-        <button id="chat-send">Send</button>
+        <input type="text" placeholder="Type your question...">
+        <button>Send</button>
       </div>
     </div>
   </div>
 
+  <!-- Footer -->
+  <footer>
+    <div class="footer-logo">ExploreAura</div>
+    <p class="footer-description">ExploreAura is your community hub for discovering jobs, marketplaces, places, skills, and events.</p>
+    <div class="footer-links">
+      <a href="#">About Us</a>
+      <a href="#">Contact</a>
+      <a href="#">FAQs</a>
+      <a href="#">Blog</a>
+    </div>
+    <div class="social-links">
+      <a href="#" aria-label="Facebook">📘</a>
+      <a href="#" aria-label="Twitter">🐦</a>
+      <a href="#" aria-label="Instagram">📷</a>
+      <a href="#" aria-label="LinkedIn">💼</a>
+    </div>
+    <p class="footer-tip">Tip: Use the search bar to quickly find exciting events!</p>
+    <div class="footer-policies">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Cookie Policy</a>
+    </div>
+    <div class="footer-actions">
+      <a href="#">Join Our Community</a>
+      <a href="#">Partner With Us</a>
+    </div>
+  </footer>
+
   <script>
-    // Item Data
-    let items = [
-      { title: "Laptop for Sale", description: "Brand new laptop with 16GB RAM and 512GB SSD. Perfect for work or gaming.", category: "Electronics", price: 800, location: "Kigali", image: "https://via.placeholder.com/300x200?text=Laptop" },
-      { title: "Traditional Rwandan Dress", description: "Handmade dress with vibrant patterns, ideal for cultural events.", category: "Clothing", price: 50, location: "Kigali", image: "https://via.placeholder.com/300x200?text=Traditional+Dress" },
-      { title: "Modern Sofa", description: "Comfortable 3-seater sofa, gently used, perfect for any living room.", category: "Furniture", price: 200, location: "Kigali", image: "https://via.placeholder.com/300x200?text=Sofa" },
-      { title: "Programming Books Bundle", description: "Collection of Python, JavaScript, and Data Science books in great condition.", category: "Books", price: 30, location: "Kigali", image: "https://via.placeholder.com/300x200?text=Books" }
+    const items = [
+      {
+        title: "Summer Music Festival",
+        description: "A lively outdoor festival featuring local bands and food stalls.",
+        category: "Festivals",
+        image: "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a596?fit=crop&w=300&h=200",
+        link: "#"
+      },
+      {
+        title: "Art & Craft Workshop",
+        description: "Learn painting and crafting techniques in a hands-on session.",
+        category: "Workshops",
+        image: "https://images.unsplash.com/photo-1513366208864-8752d4bd3037?fit=crop&w=300&h=200",
+        link: "#"
+      },
+      {
+        title: "Local Food Festival",
+        description: "Taste a variety of cuisines from local vendors at this vibrant event.",
+        category: "Food",
+        image: "https://images.unsplash.com/photo-1563729781086-33c6423f5b7d?fit=crop&w=300&h=200",
+        link: "#"
+      },
+      {
+        title: "Community Charity Run",
+        description: "Join a 5K run to support local charities and community projects.",
+        category: "Sports",
+        image: "https://images.unsplash.com/photo-1532634922-8fe0b757fb13?fit=crop&w=300&h=200",
+        link: "#"
+      },
+      {
+        title: "Annual Book Fair",
+        description: "Explore a wide selection of books and meet local authors.",
+        category: "Literature",
+        image: "https://images.unsplash.com/photo-1544716278-ca5e3f4ebf0c?fit=crop&w=300&h=200",
+        link: "#"
+      }
     ];
 
-    // Render Items
+    const itemListings = document.getElementById('item-listings');
+    const searchInput = document.getElementById('item-search');
+    const categoryButtons = document.querySelectorAll('.category-btn');
+    const addItemBtn = document.getElementById('add-item-btn');
+    const addItemModal = document.getElementById('add-item-modal');
+    const addItemForm = document.getElementById('add-item-form');
+    const modalClose = document.querySelector('.modal-close');
+    const chatWidget = document.getElementById('chat-widget');
+    const chatClose = document.querySelector('.chat-close');
+    const themeToggle = document.querySelector('.theme-toggle');
+
     function renderItems(filteredItems) {
-      const itemListings = document.getElementById('item-listings');
       itemListings.innerHTML = '';
       filteredItems.forEach(item => {
         const itemCard = document.createElement('div');
@@ -887,31 +865,24 @@
           <img src="${item.image}" alt="${item.title}">
           <h3>${item.title}</h3>
           <p>${item.description}</p>
-          <p><strong>Price:</strong> $${item.price}</p>
-          <p><strong>Location:</strong> ${item.location}</p>
-          <a href="#">View Details</a>
+          <a href="${item.link}">View Details</a>
         `;
         itemListings.appendChild(itemCard);
       });
     }
 
-    // Initial Render
     renderItems(items);
 
-    // Real-Time Search
-    document.getElementById('item-search').addEventListener('input', (e) => {
-      const query = e.target.value.toLowerCase();
+    searchInput.addEventListener('input', () => {
+      const searchTerm = searchInput.value.toLowerCase();
       const filteredItems = items.filter(item =>
-        item.title.toLowerCase().includes(query) ||
-        item.description.toLowerCase().includes(query) ||
-        item.category.toLowerCase().includes(query) ||
-        item.location.toLowerCase().includes(query)
+        item.title.toLowerCase().includes(searchTerm) ||
+        item.description.toLowerCase().includes(searchTerm) ||
+        item.category.toLowerCase().includes(searchTerm)
       );
       renderItems(filteredItems);
     });
 
-    // Category Filter
-    const categoryButtons = document.querySelectorAll('.category-btn');
     categoryButtons.forEach(button => {
       button.addEventListener('click', () => {
         categoryButtons.forEach(btn => btn.classList.remove('active'));
@@ -922,82 +893,54 @@
       });
     });
 
-    // Add Item Modal
-    const addItemBtn = document.getElementById('add-item-btn');
-    const addItemModal = document.getElementById('add-item-modal');
-    const modalClose = document.getElementById('modal-close');
-    const addItemForm = document.getElementById('add-item-form');
-
-    addItemBtn.addEventListener('click', (e) => {
-      e.preventDefault();
+    addItemBtn.addEventListener('click', () => {
       addItemModal.style.display = 'flex';
     });
 
     modalClose.addEventListener('click', () => {
       addItemModal.style.display = 'none';
-      addItemForm.reset();
     });
 
     addItemForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const formData = new FormData(addItemForm);
       const newItem = {
-        title: formData.get('title'),
-        description: formData.get('description'),
-        category: formData.get('category'),
-        price: parseFloat(formData.get('price')),
-        location: formData.get('location'),
-        image: "https://via.placeholder.com/300x200?text=" + encodeURIComponent(formData.get('title'))
+        title: document.getElementById('item-title').value,
+        description: document.getElementById('item-description').value,
+        category: document.getElementById('item-category').value,
+        image: document.getElementById('item-image').value || "https://images.unsplash.com/photo-1544716278-ca5e3f4ebf0c?fit=crop&w=300&h=200",
+        link: "#"
       };
       items.push(newItem);
       renderItems(items);
       addItemModal.style.display = 'none';
       addItemForm.reset();
-      alert('Item added successfully!');
     });
 
-    // Header Scroll Effect
-    window.addEventListener('scroll', () => {
-      document.querySelector('header').classList.toggle('scrolled', window.scrollY > 0);
+    chatWidget.addEventListener('click', () => {
+      chatWidget.classList.toggle('collapsed');
+      chatWidget.classList.toggle('expanded');
     });
 
-    // Chat Widget Toggle
-    const chatWidget = document.getElementById('chat-widget');
-    const chatClose = document.querySelector('.chat-close');
-
-    chatWidget.addEventListener('click', (e) => {
-      if (chatWidget.classList.contains('collapsed') && !e.target.classList.contains('chat-close')) {
-        chatWidget.classList.remove('collapsed');
-        chatWidget.classList.add('expanded');
-      }
+    chatClose.addEventListener('click', (e) => {
+      e.stopPropagation();
+      chatWidget.classList.add('collapsed');
+      chatWidget.classList.remove('expanded');
     });
 
-    if (chatClose) {
-      chatClose.addEventListener('click', () => {
-        chatWidget.classList.remove('expanded');
-        chatWidget.classList.add('collapsed');
-      });
-    }
-
-    // Chat Send
-    document.getElementById('chat-send').addEventListener('click', () => {
-      const message = document.getElementById('chat-input').value;
-      if (message) {
-        alert(`Message sent: ${message}`);
-        document.getElementById('chat-input').value = '';
-      }
-    });
-
-    // Theme Toggle
-    document.querySelector('.theme-toggle').addEventListener('click', () => {
+    themeToggle.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
+      localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
     });
 
-    // Get Started
-    document.querySelector('.get-started').addEventListener('click', (e) => {
-      e.preventDefault();
-      alert('Welcome! Sign up or log in to get started.');
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('header');
+      header.classList.toggle('scrolled', window.scrollY > 50);
     });
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      document.body.classList.add('dark-mode');
+    }
   </script>
 </body>
 </html>

@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Discover and share events with ExploreAura. Join community gatherings, workshops, festivals, and more.">
-  <meta name="keywords" content="events, community, workshops, festivals, sports">
-  <title>Events - ExploreAura</title>
+  <meta name="description" content="ExploreAura Places: Discover local parks, cafes, libraries, and community spots.">
+  <meta name="keywords" content="places, community, parks, cafes, libraries, events">
+  <title>ExploreAura - Places</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -52,7 +52,6 @@
       --gradient: linear-gradient(135deg, #51cf66, #40c057);
     }
 
-    /* Header */
     header {
       background-color: var(--card-bg);
       border-bottom: 1px solid var(--border-color);
@@ -139,17 +138,16 @@
       border-radius: 50px;
       text-decoration: none;
       font-weight: 600;
-      box-shadow: 0 2px 10px rgba(0, 123, 255, 0.2);
+      box-shadow: 0 2px 10px rgba(40, 167, 69, 0.2);
       transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
     }
 
     .get-started:hover {
       background-color: var(--secondary-color);
       transform: translateY(-2px);
-      box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+      box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
     }
 
-    /* Hero */
     .hero {
       text-align: center;
       padding: 6rem 2rem;
@@ -210,7 +208,6 @@
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
     }
 
-    /* Search Bar */
     .search-bar {
       max-width: 900px;
       margin: 3rem auto;
@@ -233,7 +230,7 @@
     }
 
     .search-input:focus {
-      box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+      box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.2);
     }
 
     .search-btn {
@@ -254,7 +251,6 @@
       transform: translateY(-2px);
     }
 
-    /* Category Panel */
     .category-panel {
       max-width: 1200px;
       margin: 2rem auto;
@@ -281,8 +277,7 @@
       transform: scale(1.05);
     }
 
-    /* Event Listings */
-    .event-listings {
+    .item-listings {
       max-width: 1200px;
       margin: 2rem auto;
       padding: 0 1rem;
@@ -291,7 +286,7 @@
       gap: 2rem;
     }
 
-    .event-card {
+    .item-card {
       background: var(--card-bg);
       border: none;
       padding: 2rem;
@@ -301,16 +296,16 @@
       animation: fadeInCard 0.5s ease-in;
     }
 
-    .event-card.hidden {
+    .item-card.hidden {
       display: none;
     }
 
-    .event-card:hover {
+    .item-card:hover {
       transform: translateY(-10px);
       box-shadow: 0 8px 30px rgba(0,0,0,0.15);
     }
 
-    .event-card img {
+    .item-card img {
       width: 100%;
       height: 200px;
       object-fit: cover;
@@ -318,18 +313,18 @@
       margin-bottom: 1rem;
     }
 
-    .event-card h3 {
+    .item-card h3 {
       font-size: 1.5rem;
       margin-bottom: 0.5rem;
       color: var(--primary-color);
     }
 
-    .event-card p {
+    .item-card p {
       font-size: 1rem;
       margin-bottom: 1rem;
     }
 
-    .event-card a {
+    .item-card a {
       background-color: var(--primary-color);
       color: #fff;
       padding: 0.75rem 1.5rem;
@@ -339,13 +334,12 @@
       transition: background-color 0.3s, transform 0.2s;
     }
 
-    .event-card a:hover {
+    .item-card a:hover {
       background-color: var(--secondary-color);
       transform: scale(1.05);
     }
 
-    /* Add Event Button */
-    .add-event-btn {
+    .add-item-btn {
       display: block;
       max-width: 200px;
       margin: 2rem auto;
@@ -360,12 +354,11 @@
       transition: background-color 0.3s, transform 0.2s;
     }
 
-    .add-event-btn:hover {
+    .add-item-btn:hover {
       background-color: #e68a00;
       transform: translateY(-2px);
     }
 
-    /* Modal */
     .modal {
       display: none;
       position: fixed;
@@ -443,7 +436,6 @@
       color: var(--primary-color);
     }
 
-    /* Footer */
     footer {
       background-color: var(--footer-bg);
       color: #fff;
@@ -526,7 +518,6 @@
       transform: scale(1.2);
     }
 
-    /* Chat Widget */
     .chat-widget {
       position: fixed;
       bottom: 2rem;
@@ -643,7 +634,6 @@
       background-color: var(--secondary-color);
     }
 
-    /* Responsive Design */
     @media (max-width: 768px) {
       .hero h1 {
         font-size: 2rem;
@@ -662,7 +652,7 @@
         align-items: center;
       }
 
-      .event-listings {
+      .item-listings {
         grid-template-columns: 1fr;
       }
 
@@ -676,7 +666,6 @@
       }
     }
 
-    /* Keyframes */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -707,9 +696,9 @@
       <a href="index.html">Home</a>
       <a href="Jobs.html">Jobs</a>
       <a href="marketplace.html">Marketplace</a>
-      <a href="places.html">Places</a>
+      <a href="places.html" class="active">Places</a>
       <a href="skill.html">Skills</a>
-      <a href="event.html" class="active">Events</a>
+      <a href="event.html">Events</a>
     </nav>
     <div class="header-right">
       <span class="theme-toggle" aria-label="Toggle Theme">🌓</span>
@@ -719,119 +708,56 @@
 
   <!-- Hero -->
   <section class="hero">
-    <h1>Discover Events with ExploreAura</h1>
-    <p>Join community gatherings, workshops, festivals, and more with your local community.</p>
-    <a href="#event-listings" class="hero-cta">Explore Events</a>
+    <h1>ExploreAura Places</h1>
+    <p>Discover local parks, cafes, libraries, and community spots to connect and relax.</p>
+    <a href="#item-listings" class="hero-cta">Explore Places</a>
   </section>
 
   <!-- Search Bar -->
   <section class="search-bar">
-    <input type="text" id="event-search" class="search-input" placeholder="Search events by title, description, or category...">
+    <input type="text" id="item-search" class="search-input" placeholder="Search places...">
     <button class="search-btn">Search</button>
   </section>
 
   <!-- Category Panel -->
   <section class="category-panel">
     <button class="category-btn active" data-category="all">All</button>
-    <button class="category-btn" data-category="Community">Community</button>
-    <button class="category-btn" data-category="Workshops">Workshops</button>
-    <button class="category-btn" data-category="Festivals">Festivals</button>
-    <button class="category-btn" data-category="Sports">Sports</button>
-    <button class="category-btn" data-category="Other">Other</button>
+    <button class="category-btn" data-category="Parks">Parks</button>
+    <button class="category-btn" data-category="Cafes">Cafes</button>
+    <button class="category-btn" data-category="Libraries">Libraries</button>
+    <button class="category-btn" data-category="Markets">Markets</button>
+    <button class="category-btn" data-category="Community Centers">Community Centers</button>
   </section>
 
-  <!-- Add Event Button -->
-  <a href="#" class="add-event-btn" id="add-event-btn">Add Event</a>
+  <!-- Add Item Button -->
+  <a href="#" class="add-item-btn" id="add-item-btn">Add Place</a>
 
-  <!-- Event Listings -->
-  <section class="event-listings" id="event-listings">
-    <div class="event-card" data-category="Community">
-      <img src="https://via.placeholder.com/300x200?text=Community+Gathering" alt="Community Meetup">
-      <h3>Community Meetup</h3>
-      <p>Join us for a networking event to connect with locals and share ideas.</p>
-      <p><strong>Location:</strong> Kigali</p>
-      <p><strong>Date:</strong> 2025-09-10</p>
-      <a href="#">Join Event</a>
-    </div>
-    <div class="event-card" data-category="Workshops">
-      <img src="https://via.placeholder.com/300x200?text=Coding+Workshop" alt="Coding Workshop">
-      <h3>Coding Workshop</h3>
-      <p>Learn the basics of web development in this hands-on workshop.</p>
-      <p><strong>Location:</strong> Kigali</p>
-      <p><strong>Date:</strong> 2025-09-15</p>
-      <a href="#">Join Event</a>
-    </div>
-    <div class="event-card" data-category="Festivals">
-      <img src="https://via.placeholder.com/300x200?text=Cultural+Festival" alt="Cultural Festival">
-      <h3>Cultural Festival</h3>
-      <p>Celebrate local traditions with music, dance, and food.</p>
-      <p><strong>Location:</strong> Kigali</p>
-      <p><strong>Date:</strong> 2025-10-01</p>
-      <a href="#">Join Event</a>
-    </div>
-    <div class="event-card" data-category="Sports">
-      <img src="https://via.placeholder.com/300x200?text=Soccer+Tournament" alt="Soccer Tournament">
-      <h3>Soccer Tournament</h3>
-      <p>Compete in a friendly soccer tournament with local teams.</p>
-      <p><strong>Location:</strong> Kigali</p>
-      <p><strong>Date:</strong> 2025-10-05</p>
-      <a href="#">Join Event</a>
-    </div>
+  <!-- Item Listings -->
+  <section class="item-listings" id="item-listings">
+    <!-- Places will be dynamically inserted here -->
   </section>
 
-  <!-- Modal for Adding Event -->
-  <div class="modal" id="add-event-modal">
+  <!-- Modal for Adding Places -->
+  <div class="modal" id="add-item-modal">
     <div class="modal-content">
-      <span class="modal-close" id="modal-close">&times;</span>
-      <h2>Add an Event</h2>
-      <form id="add-event-form">
-        <input type="text" name="title" placeholder="Event Title" required>
-        <textarea name="description" placeholder="Event Description" required></textarea>
-        <select name="category" required>
+      <span class="modal-close">&times;</span>
+      <h2>Add New Place</h2>
+      <form id="add-item-form">
+        <input type="text" id="item-title" placeholder="Place Name" required>
+        <textarea id="item-description" placeholder="Place Description" required></textarea>
+        <select id="item-category" required>
           <option value="" disabled selected>Select Category</option>
-          <option value="Community">Community</option>
-          <option value="Workshops">Workshops</option>
-          <option value="Festivals">Festivals</option>
-          <option value="Sports">Sports</option>
-          <option value="Other">Other</option>
+          <option value="Parks">Parks</option>
+          <option value="Cafes">Cafes</option>
+          <option value="Libraries">Libraries</option>
+          <option value="Markets">Markets</option>
+          <option value="Community Centers">Community Centers</option>
         </select>
-        <input type="text" name="location" placeholder="Location (e.g., Kigali)" required>
-        <input type="date" name="date" required>
-        <button type="submit">Submit Event</button>
+        <input type="url" id="item-image" placeholder="Image URL (optional)">
+        <button type="submit">Add Place</button>
       </form>
     </div>
   </div>
-
-  <!-- Footer -->
-  <footer>
-    <div class="footer-logo">ExploreAura</div>
-    <p>One hub for Jobs • Marketplace • Places • Skills • Events. Built with love for community.</p>
-    <div class="footer-links">
-      <a href="#">Explore</a>
-      <a href="Jobs.html">Jobs</a>
-      <a href="marketplace.html">Marketplace</a>
-      <a href="places.html">Places</a>
-      <a href="skill.html">Skills</a>
-      <a href="event.html">Events</a>
-    </div>
-    <div class="footer-policies">
-      <a href="#">Terms</a>
-      <a href="#">Privacy</a>
-      <a href="#">Safety</a>
-    </div>
-    <div class="footer-tip">Tip: Press / to focus search • Ctrl+K to open commands</div>
-    <div class="footer-actions">
-      <a href="#">Install App</a>
-      <a href="#">Contact Support</a>
-    </div>
-    <div class="social-links">
-      <a href="#" aria-label="Twitter">🐦</a>
-      <a href="#" aria-label="Facebook">📘</a>
-      <a href="#" aria-label="Instagram">📸</a>
-      <a href="#" aria-label="LinkedIn">💼</a>
-    </div>
-    <p>© 2025 ExploreAura • Safe • Local • Verified</p>
-  </footer>
 
   <!-- Chat Widget -->
   <div class="chat-widget collapsed" id="chat-widget">
@@ -840,151 +766,181 @@
       <span class="chat-close">&times;</span>
       <h4>Need Help?</h4>
       <div class="chat-options">
-        <a href="Jobs.html">Explore Jobs</a>
-        <a href="marketplace.html">Shop Marketplace</a>
-        <a href="places.html">Discover Places</a>
-        <a href="skill.html">Learn Skills</a>
-        <a href="event.html">Join Events</a>
+        <a href="#">Find a Place</a>
+        <a href="#">Add a Place</a>
+        <a href="#">Contact Support</a>
       </div>
       <div class="chat-input">
-        <input type="text" id="chat-input" placeholder="Ask a question...">
-        <button id="chat-send">Send</button>
+        <input type="text" placeholder="Type your question...">
+        <button>Send</button>
       </div>
     </div>
   </div>
 
+  <!-- Footer -->
+  <footer>
+    <div class="footer-logo">ExploreAura</div>
+    <p class="footer-description">ExploreAura is your community hub for discovering jobs, marketplaces, places, skills, and events.</p>
+    <div class="footer-links">
+      <a href="#">About Us</a>
+      <a href="#">Contact</a>
+      <a href="#">FAQs</a>
+      <a href="#">Blog</a>
+    </div>
+    <div class="social-links">
+      <a href="#" aria-label="Facebook">📘</a>
+      <a href="#" aria-label="Twitter">🐦</a>
+      <a href="#" aria-label="Instagram">📷</a>
+      <a href="#" aria-label="LinkedIn">💼</a>
+    </div>
+    <p class="footer-tip">Tip: Use the search bar to quickly find your favorite places!</p>
+    <div class="footer-policies">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Cookie Policy</a>
+    </div>
+    <div class="footer-actions">
+      <a href="#">Join Our Community</a>
+      <a href="#">Partner With Us</a>
+    </div>
+  </footer>
+
   <script>
-    // Event Data
-    let events = [
-      { title: "Community Meetup", description: "Join us for a networking event to connect with locals and share ideas.", category: "Community", location: "Kigali", date: "2025-09-10", image: "https://via.placeholder.com/300x200?text=Community+Gathering" },
-      { title: "Coding Workshop", description: "Learn the basics of web development in this hands-on workshop.", category: "Workshops", location: "Kigali", date: "2025-09-15", image: "https://via.placeholder.com/300x200?text=Coding+Workshop" },
-      { title: "Cultural Festival", description: "Celebrate local traditions with music, dance, and food.", category: "Festivals", location: "Kigali", date: "2025-10-01", image: "https://via.placeholder.com/300x200?text=Cultural+Festival" },
-      { title: "Soccer Tournament", description: "Compete in a friendly soccer tournament with local teams.", category: "Sports", location: "Kigali", date: "2025-10-05", image: "https://via.placeholder.com/300x200?text=Soccer+Tournament" }
+    const items = [
+      {
+        title: "Greenwood Park",
+        description: "A serene park with walking trails and picnic areas, perfect for family outings.",
+        category: "Parks",
+        image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?fit=crop&w=300&h=200",
+        link: "#"
+      },
+      {
+        title: "Bean & Brew Cafe",
+        description: "A cozy cafe offering artisanal coffee and pastries in a welcoming atmosphere.",
+        category: "Cafes",
+        image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?fit=crop&w=300&h=200",
+        link: "#"
+      },
+      {
+        title: "Central Library",
+        description: "A modern library with a vast collection of books and quiet study spaces.",
+        category: "Libraries",
+        image: "https://images.unsplash.com/photo-1521587760476-6c30a4ab6e2e?fit=crop&w=300&h=200",
+        link: "#"
+      },
+      {
+        title: "Sunny Farmers Market",
+        description: "A vibrant market offering fresh produce and local crafts every weekend.",
+        category: "Markets",
+        image: "https://images.unsplash.com/photo-1516257984-b91b096158f9?fit=crop&w=300&h=200",
+        link: "#"
+      },
+      {
+        title: "Harmony Community Center",
+        description: "A hub for local events, workshops, and community gatherings.",
+        category: "Community Centers",
+        image: "https://images.unsplash.com/photo-1505840717430-8829b4c3f859?fit=crop&w=300&h=200",
+        link: "#"
+      }
     ];
 
-    // Render Events
-    function renderEvents(filteredEvents) {
-      const eventListings = document.getElementById('event-listings');
-      eventListings.innerHTML = '';
-      filteredEvents.forEach(event => {
-        const eventCard = document.createElement('div');
-        eventCard.classList.add('event-card');
-        eventCard.setAttribute('data-category', event.category);
-        eventCard.innerHTML = `
-          <img src="${event.image}" alt="${event.title}">
-          <h3>${event.title}</h3>
-          <p>${event.description}</p>
-          <p><strong>Location:</strong> ${event.location}</p>
-          <p><strong>Date:</strong> ${event.date}</p>
-          <a href="#">Join Event</a>
+    const itemListings = document.getElementById('item-listings');
+    const searchInput = document.getElementById('item-search');
+    const categoryButtons = document.querySelectorAll('.category-btn');
+    const addItemBtn = document.getElementById('add-item-btn');
+    const addItemModal = document.getElementById('add-item-modal');
+    const addItemForm = document.getElementById('add-item-form');
+    const modalClose = document.querySelector('.modal-close');
+    const chatWidget = document.getElementById('chat-widget');
+    const chatClose = document.querySelector('.chat-close');
+    const themeToggle = document.querySelector('.theme-toggle');
+
+    function renderItems(filteredItems) {
+      itemListings.innerHTML = '';
+      filteredItems.forEach(item => {
+        const itemCard = document.createElement('div');
+        itemCard.classList.add('item-card');
+        itemCard.setAttribute('data-category', item.category);
+        itemCard.innerHTML = `
+          <img src="${item.image}" alt="${item.title}">
+          <h3>${item.title}</h3>
+          <p>${item.description}</p>
+          <a href="${item.link}">View Details</a>
         `;
-        eventListings.appendChild(eventCard);
+        itemListings.appendChild(itemCard);
       });
     }
 
-    // Initial Render
-    renderEvents(events);
+    renderItems(items);
 
-    // Real-Time Search
-    document.getElementById('event-search').addEventListener('input', (e) => {
-      const query = e.target.value.toLowerCase();
-      const filteredEvents = events.filter(event =>
-        event.title.toLowerCase().includes(query) ||
-        event.description.toLowerCase().includes(query) ||
-        event.category.toLowerCase().includes(query) ||
-        event.location.toLowerCase().includes(query)
+    searchInput.addEventListener('input', () => {
+      const searchTerm = searchInput.value.toLowerCase();
+      const filteredItems = items.filter(item =>
+        item.title.toLowerCase().includes(searchTerm) ||
+        item.description.toLowerCase().includes(searchTerm) ||
+        item.category.toLowerCase().includes(searchTerm)
       );
-      renderEvents(filteredEvents);
+      renderItems(filteredItems);
     });
 
-    // Category Filter
-    const categoryButtons = document.querySelectorAll('.category-btn');
     categoryButtons.forEach(button => {
       button.addEventListener('click', () => {
         categoryButtons.forEach(btn => btn.classList.remove('active'));
         button.classList.add('active');
         const category = button.getAttribute('data-category');
-        const filteredEvents = category === 'all' ? events : events.filter(event => event.category === category);
-        renderEvents(filteredEvents);
+        const filteredItems = category === 'all' ? items : items.filter(item => item.category === category);
+        renderItems(filteredItems);
       });
     });
 
-    // Add Event Modal
-    const addEventBtn = document.getElementById('add-event-btn');
-    const addEventModal = document.getElementById('add-event-modal');
-    const modalClose = document.getElementById('modal-close');
-    const addEventForm = document.getElementById('add-event-form');
-
-    addEventBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      addEventModal.style.display = 'flex';
+    addItemBtn.addEventListener('click', () => {
+      addItemModal.style.display = 'flex';
     });
 
     modalClose.addEventListener('click', () => {
-      addEventModal.style.display = 'none';
-      addEventForm.reset();
+      addItemModal.style.display = 'none';
     });
 
-    addEventForm.addEventListener('submit', (e) => {
+    addItemForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const formData = new FormData(addEventForm);
-      const newEvent = {
-        title: formData.get('title'),
-        description: formData.get('description'),
-        category: formData.get('category'),
-        location: formData.get('location'),
-        date: formData.get('date'),
-        image: "https://via.placeholder.com/300x200?text=" + encodeURIComponent(formData.get('title'))
+      const newItem = {
+        title: document.getElementById('item-title').value,
+        description: document.getElementById('item-description').value,
+        category: document.getElementById('item-category').value,
+        image: document.getElementById('item-image').value || "https://images.unsplash.com/photo-1505840717430-8829b4c3f859?fit=crop&w=300&h=200",
+        link: "#"
       };
-      events.push(newEvent);
-      renderEvents(events);
-      addEventModal.style.display = 'none';
-      addEventForm.reset();
-      alert('Event added successfully!');
+      items.push(newItem);
+      renderItems(items);
+      addItemModal.style.display = 'none';
+      addItemForm.reset();
     });
 
-    // Header Scroll Effect
-    window.addEventListener('scroll', () => {
-      document.querySelector('header').classList.toggle('scrolled', window.scrollY > 0);
+    chatWidget.addEventListener('click', () => {
+      chatWidget.classList.toggle('collapsed');
+      chatWidget.classList.toggle('expanded');
     });
 
-    // Chat Widget Toggle
-    const chatWidget = document.getElementById('chat-widget');
-    const chatClose = document.querySelector('.chat-close');
-
-    chatWidget.addEventListener('click', (e) => {
-      if (chatWidget.classList.contains('collapsed') && !e.target.classList.contains('chat-close')) {
-        chatWidget.classList.remove('collapsed');
-        chatWidget.classList.add('expanded');
-      }
+    chatClose.addEventListener('click', (e) => {
+      e.stopPropagation();
+      chatWidget.classList.add('collapsed');
+      chatWidget.classList.remove('expanded');
     });
 
-    if (chatClose) {
-      chatClose.addEventListener('click', () => {
-        chatWidget.classList.remove('expanded');
-        chatWidget.classList.add('collapsed');
-      });
-    }
-
-    // Chat Send
-    document.getElementById('chat-send').addEventListener('click', () => {
-      const message = document.getElementById('chat-input').value;
-      if (message) {
-        alert(`Message sent: ${message}`);
-        document.getElementById('chat-input').value = '';
-      }
-    });
-
-    // Theme Toggle
-    document.querySelector('.theme-toggle').addEventListener('click', () => {
+    themeToggle.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
+      localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
     });
 
-    // Get Started
-    document.querySelector('.get-started').addEventListener('click', (e) => {
-      e.preventDefault();
-      alert('Welcome! Sign up or log in to get started.');
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('header');
+      header.classList.toggle('scrolled', window.scrollY > 50);
     });
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      document.body.classList.add('dark-mode');
+    }
   </script>
 </body>
 </html>
